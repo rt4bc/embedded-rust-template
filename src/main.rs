@@ -1,14 +1,26 @@
 #![no_std]
 #![no_main]
 
-use panic_halt as _;
 use cortex_m_rt::entry;
-use stm32f4xx_hal as hal;
+use embedded_hal::digital::v2::OutputPin;
+use stm32f4xx_hal::{pac, prelude::*};
+
+#[allow(unused_imports)]
+use panic_halt; // When a panic occurs, stop the microcontroller
 
 #[entry]
 fn main() -> ! {
-    // 初始化外设,编写您的嵌入式代码
+    
+    let dp = pac::Peripherals::take().unwrap();
+
+
+    let rcc = dp.RCC.constrain();
+    // - Configure system clocks
+    // 8 MHz must be used for the Nucleo-F401RE board according to manual
+    let clocks = rcc.cfgr.use_hse(8.MHz()).freeze();
+
+
     loop {
-        // 主循环
+ 
     }
 }
