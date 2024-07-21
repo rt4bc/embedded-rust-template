@@ -4,7 +4,7 @@
         {
             "type": "probe-rs-debug",
             "request": "launch",
-            "name": "probe-rs debug example",
+            "name": "probe-rs debug",
             "cwd": "${workspaceFolder}",
             "speed": 24000,
             "connectUnderReset": false,
@@ -23,7 +23,7 @@
             "env": {
                 //!MODIFY (or remove)
                 // If you set this variable, check the VSCode console log window for the location of the log file.
-                "RUST_LOG": "info"
+                //"RUST_LOG": "info"
               },
               // Info, Debug
               "consoleLogLevel": "Console"
@@ -31,7 +31,7 @@
       {
         "type": "probe-rs-debug",
         "request": "attach",
-        "name": "probe_rs attach example",
+        "name": "probe_rs attach",
         "cwd": "${workspaceFolder}",
         //!MODIFY (or remove)
         "speed": 24000,
@@ -51,7 +51,7 @@
         "env": {
           //!MODIFY (or remove)
           // If you set this variable, check the VSCode console log window for the location of the log file.
-          "RUST_LOG": "info"
+          //"RUST_LOG": "info"
         },
         // Info, Debug
         "consoleLogLevel": "Console"

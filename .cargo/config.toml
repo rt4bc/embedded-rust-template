@@ -1,5 +1,5 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = "probe-run --chip STM32F469NIHx"
+runner = "probe-rs download --probe 0d28:0204 --chip STM32F469NIHx"
 
 [target.thumbv7em-none-eabihf]
 rustflags = [

@@ -8,6 +8,7 @@ use stm32f4xx_hal::{pac, prelude::*};
 
 #[entry]
 fn main() -> ! {
+
     // 获取对外设的访问权限
     //将 PAC（Peripheral Access Crate）的变量命名为 dp 是一种常见的惯例
     //dp 代表 "Device Peripherals"（设备外设）。
