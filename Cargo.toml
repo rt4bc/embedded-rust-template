@@ -12,7 +12,7 @@ panic-halt = "0.2.0"
 
 [dependencies.stm32f4xx-hal]
 version = "0.21.0"
-features = ["stm32f469"] 
+features = ["stm32f446"] 
 
 [profile.dev]
 opt-level = 0  # 优化大小

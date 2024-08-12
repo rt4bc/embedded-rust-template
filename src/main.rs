@@ -1,6 +1,8 @@
 #![no_main]
 #![no_std]
 
+mod test;
+
 use cortex_m_rt::entry;
 use panic_halt as _;
 
@@ -8,7 +10,6 @@ use stm32f4xx_hal::{pac, prelude::*};
 
 #[entry]
 fn main() -> ! {
-
     // 获取对外设的访问权限
     //将 PAC（Peripheral Access Crate）的变量命名为 dp 是一种常见的惯例
     //dp 代表 "Device Peripherals"（设备外设）。
@@ -20,10 +21,20 @@ fn main() -> ! {
     let clocks = rcc.cfgr.use_hse(8.MHz()).sysclk(180.MHz()).freeze();
 
     // 配置 GPIO
-    let gpiok = dp.GPIOK.split();
-    let mut green_led = gpiok.pk5.into_push_pull_output();
+    let gpioa = dp.GPIOA.split();
+    let mut green_led = gpioa.pa5.into_push_pull_output();
+    let mut _i = 0;
+
+    {
+        if test::asm_test::asm_test_1() == 0 {
+            loop {}
+        }
+
+        test::itm_test();
+    }
 
     loop {
         green_led.toggle();
+        _i += 1;
     }
 }

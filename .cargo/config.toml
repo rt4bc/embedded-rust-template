@@ -1,5 +1,6 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
-runner = "probe-rs download --probe 0d28:0204 --chip STM32F469NIHx"
+# runner = "pyocd load --format elf"
+runner = "pyocd flash -t stm32f446rex --format elf"
 
 [target.thumbv7em-none-eabihf]
 rustflags = [
