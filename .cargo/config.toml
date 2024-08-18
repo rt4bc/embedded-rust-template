@@ -5,6 +5,7 @@ runner = "pyocd flash -t stm32f446rex --format elf"
 [target.thumbv7em-none-eabihf]
 rustflags = [
     "-C", "link-arg=-Tlink.x",
+    "-C", "link-arg=-Map=target/output.map"
 ]
 
 [build]
