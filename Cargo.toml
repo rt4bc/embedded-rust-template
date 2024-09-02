@@ -8,12 +8,11 @@ edition = "2021"
 [dependencies]
 cortex-m = "0.7.7"
 cortex-m-rt = "0.7.3"
-fugit = "0.3.7"
 panic-halt = "0.2.0"
 
-[dependencies.stm32f4xx-hal]
-version = "0.21.0"
-features = ["stm32f446"] 
+[dependencies.stm32f1xx-hal]
+version = "0.10.0"
+features = ["rt", "stm32f103", "medium"]
 
 [profile.dev]
 opt-level = 0  # 优化大小
