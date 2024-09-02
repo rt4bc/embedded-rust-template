@@ -6,7 +6,7 @@ pub fn asm_test() {
     }
 
     unsafe {
-        let a:u32;
+        let a: u32;
         asm!(
             "mov {}, 1",
             out(reg) a
@@ -15,8 +15,8 @@ pub fn asm_test() {
     }
 
     unsafe {
-        let i:u32 = 3;
-        let o:u32;
+        let i: u32 = 3;
+        let o: u32;
         asm!(
             "mov {0}, {1}",
             "add {0}, 5",
@@ -27,8 +27,8 @@ pub fn asm_test() {
     }
 
     unsafe {
-        let i:u32 = 3;
-        let o:u32;
+        let i: u32 = 3;
+        let o: u32;
         asm!(
             "mov {0}, {tmp}",
             "add {0}, {1}",
@@ -38,4 +38,9 @@ pub fn asm_test() {
         );
         assert_eq!(o, 13);
     }
+}
+
+pub fn fugit_test() {
+    use fugit::{Duration, ExtU32};
+    let d = Duration::<u32, 1, 1_000>::from_ticks(111);
 }
